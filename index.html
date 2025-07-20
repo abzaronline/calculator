@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ماشین حساب ساده</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f0f0f0;
+    }
+    input, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 18px;
+    }
+    button {
+      width: 60px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>ماشین حساب ساده</h1>
+  <input type="number" id="num1" placeholder="عدد اول">
+  <input type="number" id="num2" placeholder="عدد دوم"><br>
+  <button onclick="calculate('+')">➕</button>
+  <button onclick="calculate('-')">➖</button>
+  <button onclick="calculate('*')">✖️</button>
+  <button onclick="calculate('/')">➗</button>
+
+  <div id="result">نتیجه: </div>
+
+  <script>
+    function calculate(op) {
+      const a = parseFloat(document.getElementById("num1").value);
+      const b = parseFloat(document.getElementById("num2").value);
+      let res = "خطا!";
+      if (!isNaN(a) && !isNaN(b)) {
+        switch (op) {
+          case "+": res = a + b; break;
+          case "-": res = a - b; break;
+          case "*": res = a * b; break;
+          case "/": res = b !== 0 ? a / b : "تقسیم بر صفر!"; break;
+        }
+      }
+      document.getElementById("result").innerText = "نتیجه: " + res;
+    }
+  </script>
+</body>
+</html>
